@@ -14,4 +14,5 @@ class ListaCelula: UITableViewCell{
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var videogames: UIImageView!
     @IBOutlet weak var computador: UIImageView!
+    @IBOutlet weak var like: UIImageView!
 }
