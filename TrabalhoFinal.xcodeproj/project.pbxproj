@@ -17,6 +17,12 @@
 		1B918DFD2180419500439B12 /* ItemListaLoja.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B918DFC2180419500439B12 /* ItemListaLoja.swift */; };
 		1B918DFF218041C200439B12 /* ListaCelula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B918DFE218041C200439B12 /* ListaCelula.swift */; };
 		1B918E01218055E300439B12 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B918E00218055E300439B12 /* CadastroViewController.swift */; };
+		1BADAF83218F937700BC5C9D /* MinhasListasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BADAF82218F937700BC5C9D /* MinhasListasTableViewController.swift */; };
+		1BADAF85218F95BD00BC5C9D /* ItemMinhasListas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BADAF84218F95BD00BC5C9D /* ItemMinhasListas.swift */; };
+		1BADAF87218F971500BC5C9D /* ItemMinhasListasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BADAF86218F971500BC5C9D /* ItemMinhasListasTableViewCell.swift */; };
+		1BC24A282187E80D00DF2B7C /* ListaDescricaoProdutosServicosViewCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC24A272187E80D00DF2B7C /* ListaDescricaoProdutosServicosViewCell .swift */; };
+		1BC24A2A2187EA2100DF2B7C /* ItemCelulaDescricaoProdutosServicos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC24A292187EA2100DF2B7C /* ItemCelulaDescricaoProdutosServicos.swift */; };
+		1BC24A2C2187EEF100DF2B7C /* ListaDescricaoProdutoServicoTableViewControle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC24A2B2187EEF100DF2B7C /* ListaDescricaoProdutoServicoTableViewControle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,12 @@
 		1B918DFC2180419500439B12 /* ItemListaLoja.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListaLoja.swift; sourceTree = "<group>"; };
 		1B918DFE218041C200439B12 /* ListaCelula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaCelula.swift; sourceTree = "<group>"; };
 		1B918E00218055E300439B12 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		1BADAF82218F937700BC5C9D /* MinhasListasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhasListasTableViewController.swift; sourceTree = "<group>"; };
+		1BADAF84218F95BD00BC5C9D /* ItemMinhasListas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMinhasListas.swift; sourceTree = "<group>"; };
+		1BADAF86218F971500BC5C9D /* ItemMinhasListasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMinhasListasTableViewCell.swift; sourceTree = "<group>"; };
+		1BC24A272187E80D00DF2B7C /* ListaDescricaoProdutosServicosViewCell .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListaDescricaoProdutosServicosViewCell .swift"; sourceTree = "<group>"; };
+		1BC24A292187EA2100DF2B7C /* ItemCelulaDescricaoProdutosServicos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCelulaDescricaoProdutosServicos.swift; sourceTree = "<group>"; };
+		1BC24A2B2187EEF100DF2B7C /* ListaDescricaoProdutoServicoTableViewControle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaDescricaoProdutoServicoTableViewControle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				1B918DFE218041C200439B12 /* ListaCelula.swift */,
+				1BC24A272187E80D00DF2B7C /* ListaDescricaoProdutosServicosViewCell .swift */,
+				1BADAF86218F971500BC5C9D /* ItemMinhasListasTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -90,6 +104,8 @@
 			children = (
 				1B918DFA218040F400439B12 /* ListaController.swift */,
 				1B48F8A7218148260039670F /* ListaLojaTableViewController.swift */,
+				1BC24A2B2187EEF100DF2B7C /* ListaDescricaoProdutoServicoTableViewControle.swift */,
+				1BADAF82218F937700BC5C9D /* MinhasListasTableViewController.swift */,
 			);
 			path = TableController;
 			sourceTree = "<group>";
@@ -107,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				1B918DFC2180419500439B12 /* ItemListaLoja.swift */,
+				1BC24A292187EA2100DF2B7C /* ItemCelulaDescricaoProdutosServicos.swift */,
+				1BADAF84218F95BD00BC5C9D /* ItemMinhasListas.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,12 +200,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BADAF85218F95BD00BC5C9D /* ItemMinhasListas.swift in Sources */,
+				1BC24A2A2187EA2100DF2B7C /* ItemCelulaDescricaoProdutosServicos.swift in Sources */,
 				1B48F8A8218148260039670F /* ListaLojaTableViewController.swift in Sources */,
 				1B918DFD2180419500439B12 /* ItemListaLoja.swift in Sources */,
+				1BADAF83218F937700BC5C9D /* MinhasListasTableViewController.swift in Sources */,
 				1B918E01218055E300439B12 /* CadastroViewController.swift in Sources */,
+				1BC24A282187E80D00DF2B7C /* ListaDescricaoProdutosServicosViewCell .swift in Sources */,
+				1BC24A2C2187EEF100DF2B7C /* ListaDescricaoProdutoServicoTableViewControle.swift in Sources */,
 				1B918DFF218041C200439B12 /* ListaCelula.swift in Sources */,
 				1B918DE82180406D00439B12 /* ViewController.swift in Sources */,
 				1B918DFB218040F400439B12 /* ListaController.swift in Sources */,
+				1BADAF87218F971500BC5C9D /* ItemMinhasListasTableViewCell.swift in Sources */,
 				1B918DE62180406D00439B12 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
