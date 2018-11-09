@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 class ListaLojaTableViewController: UITableViewController {
     var itens: [ItemListaLoja] = []
+    var realm = try! Realm()
     var logo = UIImage(named: "header-bahianinho")
     var videogame = UIImage(named: "video-game")
     var pc = UIImage(named: "pc")
@@ -26,6 +29,7 @@ class ListaLojaTableViewController: UITableViewController {
 
         item = ItemListaLoja(titulo: "Juninho Systems", image: logo, image1: videogame, image2: pc, like: liked)
         itens.append(item)
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,18 +37,20 @@ class ListaLojaTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itens.count
+        let lojas = realm.objects(Loja.self).sorted(byKeyPath: "nome", ascending: true)
+        return lojas.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.itens[indexPath.row]
         let celulaReuso = "celulaReuso"
+        let lojas = realm.objects(Loja.self).sorted(byKeyPath: "nome", ascending: true)
+        let itemLoja = lojas[indexPath.row]
         let celula = tableView.dequeueReusableCell(withIdentifier: celulaReuso, for: indexPath) as! ListaCelula
-        celula.logo.image = item.image
-        celula.videogames.image = item.image1
-        celula.computador.image = item.image2
-        celula.like.image = item.like
-        celula.titulo.text = item.titulo
+        celula.logo.image = UIImage(named: itemLoja.iconeGrande)
+        celula.videogames.image = itemLoja.vendeJogos ? videogame : nil
+        celula.computador.image = itemLoja.vendeComputador ? pc : nil
+        celula.like.image = itemLoja.favorita ? liked : like
+        celula.titulo.text = itemLoja.nome
         return celula
     }
     
