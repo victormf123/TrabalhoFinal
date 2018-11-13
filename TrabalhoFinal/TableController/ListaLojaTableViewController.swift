@@ -20,19 +20,11 @@ class ListaLojaTableViewController: UITableViewController {
     var pc = UIImage(named: "pc")
     var like = UIImage(named: "like")
     var liked = UIImage(named: "liked")
+    var lojas: Results<Loja>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var item: ItemListaLoja
-        
-        item = ItemListaLoja(titulo: "Casas Bahia", image: logo, image1: videogame, image2: pc, like: like)
-        itens.append(item)
-
-        item = ItemListaLoja(titulo: "Juninho Systems", image: logo, image1: videogame, image2: pc, like: liked)
-        itens.append(item)
-        
-        print("Nome Lista selecionada: \(nomeLista)")
+        self.lojas = realm.objects(Loja.self).sorted(byKeyPath: "nome", ascending: true)
         
     }
     
@@ -40,17 +32,22 @@ class ListaLojaTableViewController: UITableViewController {
         return 1
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = tableView.indexPathForSelectedRow!
+        let item = self.lojas[indexPath.row]
+        let viewControllerDestino = segue.destination as! ListaDescricaoProdutoServicoTableViewControle
+        viewControllerDestino.nomeItem = item.nome
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let lojas = realm.objects(Loja.self).sorted(byKeyPath: "nome", ascending: true)
-        return lojas.count
+        return self.lojas.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celulaReuso = "celulaReuso"
-        let lojas = realm.objects(Loja.self).sorted(byKeyPath: "nome", ascending: true)
-        let itemLoja = lojas[indexPath.row]
+        let itemLoja = self.lojas[indexPath.row]
         let celula = tableView.dequeueReusableCell(withIdentifier: celulaReuso, for: indexPath) as! ListaCelula
-        celula.logo.image = UIImage(named: itemLoja.iconeGrande)
+        celula.logo.image = UIImage(named: itemLoja.iconePequeno)
         celula.videogames.image = itemLoja.vendeJogos ? videogame : nil
         celula.computador.image = itemLoja.vendeComputador ? pc : nil
         celula.like.image = itemLoja.favorita ? liked : like

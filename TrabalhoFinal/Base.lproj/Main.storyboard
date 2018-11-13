@@ -528,7 +528,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8O-E5-y60">
                                 <rect key="frame" x="16" y="73" width="343" height="529"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_ricardo_eletro" translatesAutoresizingMaskIntoConstraints="NO" id="Hkf-dD-oMP">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_ricardo_eletro" translatesAutoresizingMaskIntoConstraints="NO" id="Hkf-dD-oMP">
                                         <rect key="frame" x="51.5" y="43" width="240" height="78"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="aJZ-CE-IdD"/>
@@ -659,7 +659,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Ricardo Eletro" id="j0e-6O-tsd"/>
                     <connections>
+                        <outlet property="logo" destination="Hkf-dD-oMP" id="HPR-Ah-478"/>
                         <outlet property="tableView" destination="YRK-TK-WtO" id="DS8-He-fb8"/>
+                        <outlet property="titulo" destination="e1w-OE-sWZ" id="7X9-zj-wLO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="roA-Zk-92Z" userLabel="First Responder" sceneMemberID="firstResponder"/>

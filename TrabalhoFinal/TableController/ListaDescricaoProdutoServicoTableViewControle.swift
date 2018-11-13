@@ -7,14 +7,31 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
+
 class ListaDescricaoProdutoServicoTableViewControle: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var itens: [ItemCelulaDescricaoProdutosServicos] = []
     var iphone = UIImage(named: "iphonex")
     var android = UIImage(named: "android")
+    var nomeItem: String!
+    var realm = try! Realm()
+    var loja: Results<Loja>!
+    var listaProdutos: List<Produto>!
+    
+    @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var titulo: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loja = realm.objects(Loja.self).filter("nome LIKE '\(self.nomeItem! )'")
+        for  item in self.loja {
+            self.listaProdutos = item.produtos
+            self.logo.image = UIImage(named: item.iconeGrande)
+            self.titulo.text = item.nome
+        }
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -32,16 +49,16 @@ class ListaDescricaoProdutoServicoTableViewControle: UIViewController, UITableVi
     
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itens.count
+        return self.listaProdutos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.itens[indexPath.row]
+        let item = self.listaProdutos[indexPath.row]
         let celulaReuso = "celulaReuso"
         let celula = tableView.dequeueReusableCell(withIdentifier: celulaReuso, for: indexPath) as! ListaDescricaoProdutosServicosViewCell
-        celula.logo.image = item.logo
+        celula.logo.image =  UIImage(named: item.imagem)
         celula.titulo.text = item.titulo
-        celula.subdescricao.text = item.subdescricao
+        celula.subdescricao.text = item.descricao
         return celula
     }
     
