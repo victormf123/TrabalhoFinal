@@ -1,8 +1,8 @@
 //
-//  ListaLojaTableViewController.swift
+//  ListaLojaJogosTableViewController.swift
 //  TrabalhoFinal
 //
-//  Created by Matheus Freitas on 24/10/18.
+//  Created by Matheus Freitas on 13/11/18.
 //  Copyright © 2018 Matheus Freitas. All rights reserved.
 //
 
@@ -10,11 +10,10 @@ import UIKit
 import Realm
 import RealmSwift
 
-class ListaLojaTableViewController: UITableViewController {
-    
+class ListaLojaJogosTableViewController: UITableViewController {
     var nomeLista: String!
-    var itens: [ItemListaLoja] = []
     var realm = try! Realm()
+    var listaLojas: List<Loja>!
     var logo = UIImage(named: "header-bahianinho")
     var videogame = UIImage(named: "video-game")
     var pc = UIImage(named: "pc")
@@ -23,17 +22,11 @@ class ListaLojaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var item: ItemListaLoja
-        
-        item = ItemListaLoja(titulo: "Casas Bahia", image: logo, image1: videogame, image2: pc, like: like)
-        itens.append(item)
-
-        item = ItemListaLoja(titulo: "Juninho Systems", image: logo, image1: videogame, image2: pc, like: liked)
-        itens.append(item)
-        
-        print("Nome Lista selecionada: \(nomeLista)")
-        
+        let lojas = realm.objects(Favorito.self).filter("nome LIKE '\(self.nomeLista! )'")
+        for item in lojas {
+            listaLojas = item.lojas
+        }
+    
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,14 +34,12 @@ class ListaLojaTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let lojas = realm.objects(Loja.self).sorted(byKeyPath: "nome", ascending: true)
-        return lojas.count
+        return listaLojas.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celulaReuso = "celulaReuso"
-        let lojas = realm.objects(Loja.self).sorted(byKeyPath: "nome", ascending: true)
-        let itemLoja = lojas[indexPath.row]
+        let itemLoja = listaLojas[indexPath.row]
         let celula = tableView.dequeueReusableCell(withIdentifier: celulaReuso, for: indexPath) as! ListaCelula
         celula.logo.image = UIImage(named: itemLoja.iconeGrande)
         celula.videogames.image = itemLoja.vendeJogos ? videogame : nil
@@ -56,10 +47,5 @@ class ListaLojaTableViewController: UITableViewController {
         celula.like.image = itemLoja.favorita ? liked : like
         celula.titulo.text = itemLoja.nome
         return celula
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

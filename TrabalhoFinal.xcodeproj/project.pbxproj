@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B2EAFAA219B68F200BAFF27 /* ListaLojaJogosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2EAFA9219B68F200BAFF27 /* ListaLojaJogosTableViewController.swift */; };
 		1B38A08F2194EE7C0048DA2E /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38A08E2194EE7C0048DA2E /* Database.swift */; };
 		1B38A0912194EEF50048DA2E /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B38A0902194EEF50048DA2E /* Usuario.swift */; };
 		1B38A0A02194EF7E0048DA2E /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B38A09F2194EF7E0048DA2E /* IQKeyboardManagerSwift.framework */; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B2EAFA9219B68F200BAFF27 /* ListaLojaJogosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaLojaJogosTableViewController.swift; sourceTree = "<group>"; };
 		1B38A08E2194EE7C0048DA2E /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		1B38A0902194EEF50048DA2E /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		1B38A09F2194EF7E0048DA2E /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +160,7 @@
 				1B48F8A7218148260039670F /* ListaLojaTableViewController.swift */,
 				1BC24A2B2187EEF100DF2B7C /* ListaDescricaoProdutoServicoTableViewControle.swift */,
 				1BADAF82218F937700BC5C9D /* MinhasListasTableViewController.swift */,
+				1B2EAFA9219B68F200BAFF27 /* ListaLojaJogosTableViewController.swift */,
 			);
 			path = TableController;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				1B38A0912194EEF50048DA2E /* Usuario.swift in Sources */,
 				1B38A0B92194F1FD0048DA2E /* Produto.swift in Sources */,
 				1B918DFF218041C200439B12 /* ListaCelula.swift in Sources */,
+				1B2EAFAA219B68F200BAFF27 /* ListaLojaJogosTableViewController.swift in Sources */,
 				1B918DE82180406D00439B12 /* ViewController.swift in Sources */,
 				1B918DFB218040F400439B12 /* ListaController.swift in Sources */,
 				1BADAF87218F971500BC5C9D /* ItemMinhasListasTableViewCell.swift in Sources */,

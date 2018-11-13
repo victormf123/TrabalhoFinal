@@ -74,7 +74,7 @@
                                 <connections>
                                     <outlet property="descricao" destination="AG6-RG-8X4" id="zcV-wV-ntI"/>
                                     <outlet property="titulo" destination="DTn-vE-xTf" id="Mk0-aF-NvT"/>
-                                    <segue destination="wVA-l6-5KO" kind="show" id="U7o-VX-LNg"/>
+                                    <segue destination="wVA-l6-5KO" kind="show" identifier="listaJogosSegue " id="U7o-VX-LNg"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add_list" id="NXF-zv-pOa">
@@ -669,7 +669,7 @@
         <!--Loja-->
         <scene sceneID="hKx-sw-6rx">
             <objects>
-                <tableViewController title="Loja" id="wVA-l6-5KO" customClass="ListaLojaTableViewController" customModule="TrabalhoFinal" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Loja" id="wVA-l6-5KO" customClass="ListaLojaJogosTableViewController" customModule="TrabalhoFinal" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ieg-z2-Npr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -682,7 +682,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FwH-hs-xYm">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FwH-hs-xYm">
                                             <rect key="frame" x="16" y="8" width="84" height="84"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="84" id="OAy-Pu-cz2"/>

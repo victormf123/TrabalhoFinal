@@ -13,31 +13,20 @@ import RealmSwift
 class MinhasListasTableViewController: UITableViewController {
     var itens: [ItemMinhaLista] = []
     var realm = try! Realm()
+    var favoritos: Results<Favorito>!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.favoritos = realm.objects(Favorito.self).sorted(byKeyPath: "nome", ascending: true)
         
-        var item: ItemMinhaLista
-        
-        item = ItemMinhaLista(titulo: "LOJA JOGOS", descricao: "30 DIAS")
-        itens.append(item)
-        
-        item = ItemMinhaLista(titulo: "LOJA JOGOS", descricao: "30 DIAS")
-        itens.append(item)
-        
-//        print("Realm location ")
-//        print(Realm.Configuration.defaultConfiguration.fileURL)
-
-//        let casaBahia = Loja("Casas Bahia", iconePequeno: "header-bahianinho", iconeGrande: "header-bahianinho", vendeComputador: false, vendeJogos: true, favorita: true)
-//        let juninhoSystems = Loja("Juninho Systems", iconePequeno: "header-bahianinho", iconeGrande: "header-bahianinho", vendeComputador: true, vendeJogos: true, favorita: true)
-//        let ricadoEletro = Loja("Ricardo Eletro", iconePequeno: "header-ricardo", iconeGrande: "header-ricardo", vendeComputador: true, vendeJogos: false, favorita: true)
-//
-//        try! realm.write {
-//            realm.add(casaBahia)
-//            realm.add(juninhoSystems)
-//            realm.add(ricadoEletro)
-//        }
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = tableView.indexPathForSelectedRow!
+        let item = self.favoritos[indexPath.row]
+        let viewControllerDestino = segue.destination as! ListaLojaJogosTableViewController
+        viewControllerDestino.nomeLista = item.nome
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,9 +34,8 @@ class MinhasListasTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let favoritos = realm.objects(Favorito.self).sorted(byKeyPath: "nome", ascending: true)
-        if !favoritos.isEmpty {
-            return itens.count
+        if !self.favoritos.isEmpty {
+            return favoritos.count
         }else{
             return 1
         }
@@ -55,12 +43,9 @@ class MinhasListasTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let favoritos = realm.objects(Favorito.self).sorted(byKeyPath: "nome", ascending: true)
-        if !favoritos.isEmpty {
+        if !self.favoritos.isEmpty {
             let celulaReuso = "celulaReuso"
-            let favoritos = realm.objects(Favorito.self).sorted(byKeyPath: "nome", ascending: true)
-            let item = favoritos[indexPath.row]
+            let item = self.favoritos[indexPath.row]
             let celula = tableView.dequeueReusableCell(withIdentifier: celulaReuso, for: indexPath) as! ItemMinhasListasTableViewCell
             celula.titulo.text = item.nome.uppercased()
             celula.descricao.text = "\(item.lojas.count) LOJAS"
