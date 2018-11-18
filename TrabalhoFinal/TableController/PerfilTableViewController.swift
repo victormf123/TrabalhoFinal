@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import Realm
-import RealmSwift
+
 
 class PerfilTableViewController: UITableViewController {
     var emailUsuario: String!
-     var realm = try! Realm()
+    var perfilController: PerfilController = PerfilController()
+    
     @IBOutlet weak var imgUsuario: UIImageView!
     @IBOutlet weak var nome: UILabel!
     @IBOutlet weak var email: UILabel!
@@ -21,15 +21,15 @@ class PerfilTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("emailUsuario PerfilTableViewCOntroller: \(emailUsuario)")
-        let usuario = try! realm.objects(Usuario.self).filter("email LIKE '\(self.emailUsuario!)'")
-        for item in usuario{
-            self.imgUsuario.image = UIImage(named: item.foto)
-            self.nome.text = item.nome
-            self.email.text = item.email
-            self.numero.text = item.telefone
-            self.qtdList.text = "\(item.lojasServidor.count) Lojas"
+        
+        if let usuario = perfilController.buscarDadosUsuario(email: emailUsuario) as? Usuario {
+            self.imgUsuario.image = UIImage(named: usuario.foto)
+            self.nome.text = usuario.nome
+            self.email.text = usuario.email
+            self.numero.text = usuario.telefone
+            self.qtdList.text = "\(usuario.lojasServidor.count) Lojas"
         }
+        
         
     }
     

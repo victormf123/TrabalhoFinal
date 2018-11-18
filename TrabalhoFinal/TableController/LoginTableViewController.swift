@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import Realm
-import RealmSwift
 
 class LoginTableViewController: UITableViewController {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var senha: UITextField!
     var loginController: LoginCOntroller = LoginCOntroller()
-     var realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
