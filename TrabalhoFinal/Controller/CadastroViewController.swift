@@ -7,20 +7,21 @@
 //
 
 import UIKit
-import Realm
-import RealmSwift
+
+
 
 class CadastroViewController: UIViewController {
-    var realm = try! Realm()
+    
     @IBOutlet weak var nome: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var senha: UITextField!
-    
     @IBOutlet weak var telefone: UITextField!
-    
     @IBOutlet weak var idade: UITextField!
+    var cadastroController: CadastroController = CadastroController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -34,22 +35,21 @@ class CadastroViewController: UIViewController {
     }
     
     @IBAction func cadastro(_ sender: Any) {
-        let user = Usuario(value:["nome": "\(self.nome.text!)", "foto" : "user-logo", "email": "\(self.email.text!)", "senha" : "\(self.senha.text!)", "telefone" : "\(self.idade.text!)"])
+        var valorIdade: Int = 0
+        if let idade = self.idade.text {
+            valorIdade = Int(idade)!
+        }
         
-        do {
-            try! realm.write {
-                realm.add(user)
-                self.dismiss(animated: true, completion: nil)
-            }
-        } catch let error {
-            let alert = UIAlertController(title: "Erro!", message: "\(error).", preferredStyle: .alert)
+        let cadastro: Bool  = self.cadastroController.cadastrarUsuario(nome: self.nome.text!, foto: "user-logo", email: self.email.text!, senha: self.senha.text!, telefone: self.telefone.text!, idade: valorIdade)
+        
+        if cadastro{
+             self.dismiss(animated: true, completion: nil)
+            }else{
+            let alert = UIAlertController(title: "Erro!", message: "Ocorreu um erro.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
             self.present(alert, animated: true)
-        }
+            }
     }
-    /*@IBAction func exit(_ sender: Any) {
-     
-     }*/
-    
     
 }
+

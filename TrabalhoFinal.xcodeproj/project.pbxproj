@@ -39,6 +39,7 @@
 		1BC24A282187E80D00DF2B7C /* ListaDescricaoProdutosServicosViewCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC24A272187E80D00DF2B7C /* ListaDescricaoProdutosServicosViewCell .swift */; };
 		1BC24A2A2187EA2100DF2B7C /* ItemCelulaDescricaoProdutosServicos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC24A292187EA2100DF2B7C /* ItemCelulaDescricaoProdutosServicos.swift */; };
 		1BC24A2C2187EEF100DF2B7C /* ListaDescricaoProdutoServicoTableViewControle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC24A2B2187EEF100DF2B7C /* ListaDescricaoProdutoServicoTableViewControle.swift */; };
+		1BC46DF421A0E37F00934478 /* CadastroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC46DF321A0E37F00934478 /* CadastroController.swift */; };
 		598781066D90524B012EF8D0 /* Pods_TrabalhoFinal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB7AAB51C19A96FC35FA5CE /* Pods_TrabalhoFinal.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		1BC24A272187E80D00DF2B7C /* ListaDescricaoProdutosServicosViewCell .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListaDescricaoProdutosServicosViewCell .swift"; sourceTree = "<group>"; };
 		1BC24A292187EA2100DF2B7C /* ItemCelulaDescricaoProdutosServicos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCelulaDescricaoProdutosServicos.swift; sourceTree = "<group>"; };
 		1BC24A2B2187EEF100DF2B7C /* ListaDescricaoProdutoServicoTableViewControle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaDescricaoProdutoServicoTableViewControle.swift; sourceTree = "<group>"; };
+		1BC46DF321A0E37F00934478 /* CadastroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroController.swift; sourceTree = "<group>"; };
 		CAB7AAB51C19A96FC35FA5CE /* Pods_TrabalhoFinal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrabalhoFinal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68BA8DEA770FAF55CD12B86 /* Pods-TrabalhoFinal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrabalhoFinal.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrabalhoFinal/Pods-TrabalhoFinal.release.xcconfig"; sourceTree = "<group>"; };
 		E7379A6FCAAA3D91F76884C2 /* Pods-TrabalhoFinal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrabalhoFinal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrabalhoFinal/Pods-TrabalhoFinal.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				1B918DE72180406D00439B12 /* ViewController.swift */,
 				1B918E00218055E300439B12 /* CadastroViewController.swift */,
+				1BC46DF321A0E37F00934478 /* CadastroController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				1BC24A282187E80D00DF2B7C /* ListaDescricaoProdutosServicosViewCell .swift in Sources */,
 				1BC24A2C2187EEF100DF2B7C /* ListaDescricaoProdutoServicoTableViewControle.swift in Sources */,
 				1B38A0912194EEF50048DA2E /* Usuario.swift in Sources */,
+				1BC46DF421A0E37F00934478 /* CadastroController.swift in Sources */,
 				1B38A0B92194F1FD0048DA2E /* Produto.swift in Sources */,
 				1B918DFF218041C200439B12 /* ListaCelula.swift in Sources */,
 				1B2EAFAA219B68F200BAFF27 /* ListaLojaJogosTableViewController.swift in Sources */,
