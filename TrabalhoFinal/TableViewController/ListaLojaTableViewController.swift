@@ -13,7 +13,6 @@ import RealmSwift
 class ListaLojaTableViewController: UITableViewController {
     
     var nomeLista: String!
-    var itens: [ItemListaLoja] = []
     var realm = try! Realm()
     var logo = UIImage(named: "header-bahianinho")
     var videogame = UIImage(named: "video-game")
@@ -21,11 +20,11 @@ class ListaLojaTableViewController: UITableViewController {
     var like = UIImage(named: "like")
     var liked = UIImage(named: "liked")
     var lojas: Results<Loja>!
+    var lojasController: LojasController = LojasController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.lojas = realm.objects(Loja.self).sorted(byKeyPath: "nome", ascending: true)
-        
+        self.lojas = self.lojasController.BuscarListaLojas()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

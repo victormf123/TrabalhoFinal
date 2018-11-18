@@ -11,14 +11,14 @@ import Realm
 import RealmSwift
 
 class MinhasListasTableViewController: UITableViewController {
-    var itens: [ItemMinhaLista] = []
     var realm = try! Realm()
     var favoritos: Results<Favorito>!
+    var lojasContoller: LojasController = LojasController()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.favoritos = realm.objects(Favorito.self).sorted(byKeyPath: "nome", ascending: true)
+        self.favoritos = lojasContoller.BuscarListasFavoritosUsuario()
         
     }
     

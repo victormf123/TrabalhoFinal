@@ -18,6 +18,7 @@ class ListaDescricaoProdutoServicoTableViewControle: UIViewController, UITableVi
     var realm = try! Realm()
     var loja: Results<Loja>!
     var listaProdutos: List<Produto>!
+    var lojasController: LojasController = LojasController()
     
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -25,7 +26,9 @@ class ListaDescricaoProdutoServicoTableViewControle: UIViewController, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loja = realm.objects(Loja.self).filter("nome LIKE '\(self.nomeItem! )'")
+        if let nome = self.nomeItem {
+            self.loja = self.lojasController.BuscarItemListasLoja(nome: nome)
+        }
         for  item in self.loja {
             self.listaProdutos = item.produtos
             self.logo.image = UIImage(named: item.iconeGrande)

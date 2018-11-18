@@ -29,8 +29,6 @@ class PerfilTableViewController: UITableViewController {
             self.numero.text = usuario.telefone
             self.qtdList.text = "\(usuario.lojasServidor.count) Lojas"
         }
-        
-        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

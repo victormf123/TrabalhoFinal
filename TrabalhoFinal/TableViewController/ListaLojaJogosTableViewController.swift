@@ -19,13 +19,19 @@ class ListaLojaJogosTableViewController: UITableViewController {
     var pc = UIImage(named: "pc")
     var like = UIImage(named: "like")
     var liked = UIImage(named: "liked")
+    var lojasController: LojasController = LojasController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let lojas = realm.objects(Favorito.self).filter("nome LIKE '\(self.nomeLista! )'")
-        for item in lojas {
-            listaLojas = item.lojas
+        var lojas: Results<Favorito>
+        if let nome = self.nomeLista {
+            lojas = lojasController.BuscarItensListasFavoritos(nome: nome)
+            for item in lojas {
+                listaLojas = item.lojas
+            }
         }
+        
+        
     
     }
     
