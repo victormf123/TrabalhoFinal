@@ -14,6 +14,7 @@ class LoginTableViewController: UITableViewController {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var senha: UITextField!
+    var loginController: LoginCOntroller = LoginCOntroller()
      var realm = try! Realm()
     
     override func viewDidLoad() {
@@ -28,21 +29,27 @@ class LoginTableViewController: UITableViewController {
     @IBAction func entrar(_ sender: Any) {
         var alert: UIAlertController
         let storyboardMain = UIStoryboard(name: "Main", bundle: nil)
-        print("email: \(self.email.text!), senha: \(self.senha.text!)")
-        let usuario = try! realm.objects(Usuario.self).filter("email == '\(self.email.text!)' AND senha == '\(self.senha.text!)'")
-        if !usuario.isEmpty{
-            
-            if let perfilTableViewController = storyboardMain.instantiateViewController(withIdentifier: "PerfilStoryboardID") as? PerfilTableViewController{
-                perfilTableViewController.emailUsuario = self.email.text!
-            self.navigationController?.pushViewController(perfilTableViewController, animated: true)
-            }
-            
-        }else{
-            alert = UIAlertController(title: "Atenção", message: "Você não possui cadastro.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
-        }
+//        print("email: \(!), senha: \(!)")
+        var emailNotOptional: String = ""
+        var senhaNotOptional: String = ""
+        if let email = self.email.text { emailNotOptional = email }
         
+        if let senha = self.senha.text { senhaNotOptional = senha}
+        
+        if let login: Bool = self.loginController.login(email: emailNotOptional, senha: senhaNotOptional){
+            
+            if login {
+                if let perfilTableViewController = storyboardMain.instantiateViewController(withIdentifier: "PerfilStoryboardID") as? PerfilTableViewController{
+                    perfilTableViewController.emailUsuario = self.email.text!
+                    self.navigationController?.pushViewController(perfilTableViewController, animated: true)
+                }
+            }else{
+                alert = UIAlertController(title: "Atenção", message: "Você não possui cadastro.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
+
+        }
         
     }
 }
